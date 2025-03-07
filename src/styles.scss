@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@use "@coreui/coreui/scss/coreui" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: #444 transparent;
+}
+body {
+  margin: 0;
+  padding: 0;
+//   font-family: Verdana, sans-serif;
+//   font-size: 15px;
+//   line-height: 1.5;
+}
