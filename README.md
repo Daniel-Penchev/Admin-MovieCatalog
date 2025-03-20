@@ -1,3 +1,4 @@
 # MovieCatalog
-Add .gitignore: VisualStudio
+
+Add .gitignore: VisualStudio 
 Choose License: MIT License
