@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="!isLoginPage">
+<div class="container-fluid" *ngIf="isAuthtenticated && !isNotFoundPage && !isLoginPage">
   <div class="sidebar-menu" *ngIf="isSidebarOpen">
     <div class="sidebar-menu__logo">
       <svg
@@ -118,12 +118,15 @@
 
     </div>
     <div class="container" >
-     <router-outlet></router-outlet>
+     <router-outlet ></router-outlet>
     </div>
   </div>
 </div>
-<div *ngIf="isLoginPage">
+<div *ngIf="isAuthtenticated && isNotFoundPage">
   <router-outlet></router-outlet>
+</div>
+<div *ngIf="!isAuthtenticated">
+  <app-login></app-login>
 </div>
 <!-- <div *ngIf="isRegisterPage">
   <router-outlet ></router-outlet>
