@@ -18,6 +18,7 @@ export class AppComponent {
   isLoginPage: boolean = false;
   isRegisterPage: boolean = false;
   isAuthtenticated: boolean = false;
+  isNotFoundPage: boolean = false;
   user = new User();
 
   constructor(
@@ -41,6 +42,7 @@ export class AppComponent {
       .subscribe((event: NavigationEnd) => {
         this.isLoginPage = event.urlAfterRedirects === '/login';
         this.isRegisterPage = event.urlAfterRedirects === '/register';
+        this.isNotFoundPage = event.urlAfterRedirects === '/not-found';
       });
   }
 

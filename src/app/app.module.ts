@@ -12,13 +12,18 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     MovieComponent,
     DashboardComponent,
     GenresComponent,
+    LoginComponent,
     RegisterComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Login } from './login.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Login } from './login.model';
 })
 export class LoginComponent {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
  
   loginData = new Login();
 
@@ -19,7 +20,7 @@ export class LoginComponent {
   }
   onLogin() {
     this.auth.login(this.loginData);
-
+    this.router.navigate(['/']);
     return false;
   }
 
