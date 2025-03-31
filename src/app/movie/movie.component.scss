@@ -1,0 +1,40 @@
+.movies{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    &__item{
+
+        width: 250px;
+        height: auto; // Позволява разширяване
+        min-height: 400px; // Задава минимална височина
+        &__img{
+            width: 100%;
+            height: 350px;
+            border-radius: 3%;
+        }
+        &__info{
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            &__title{
+                font-size: 1.31rem;
+                font-weight: bold;
+                line-height: 2.2;
+                max-height: 2.4rem; // Два реда текст
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            &__release-date{
+                font-size: 1rem;
+            }
+        }
+        &__actions{
+            display: flex;
+            gap: 0.5rem;
+        }
+    }
+}

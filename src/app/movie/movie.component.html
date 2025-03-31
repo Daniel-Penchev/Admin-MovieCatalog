@@ -1,1 +1,20 @@
-<p>movie works!</p>
+<div class="container mt-5">
+    <h3 class="my-4">Movies</h3>
+    <div class="d-flex align-items-center gap-4">
+        <input type="text" class="form-control" id="search" placeholder="Search" [(ngModel)]="model.search">
+        <button type="button" class="btn btn-success text-white" style="width: 15%;" (click)="onAddNew()">Add New</button>
+    </div>
+    <div class="movies my-4">
+         <div class="movies__item" *ngFor="let movie of model.movieItems | filterName: model.search">
+            <img [src]="movie.imageUrl" [alt]="movie.name" class="movies__item__img">
+            <div class="movies__item__info">
+                <h4 class="movies__item__info__title" [title]="movie.name">{{movie.name}}</h4>
+                <p class="movies__item__info__release-date">{{movie.releaseDate | date:'yyyy/MM/dd'}}</p>
+            </div>
+            <div class="movies__item__actions">
+                <button type="button" class="btn btn-primary" (click)="onEdit(movie.id)">Edit</button>
+                <button type="button" class="btn btn-danger text-white" (click)="onDelete(movie)">Delete</button>
+            </div>
+         </div>
+    </div>
+</div>

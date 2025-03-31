@@ -77,7 +77,9 @@ export class AuthService {
   isAuthenticated() {
     return localStorage.getItem(this.TOKEN_KEY) != null ? true : false;
   }
-
+  getToken() {
+    return localStorage.getItem(this.TOKEN_KEY);
+  }
   isTokenDataValid() {
     var dateNow = new Date();
 

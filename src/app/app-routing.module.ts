@@ -8,10 +8,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { NoAuthGuard } from './auth/no-auth.guard';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 const routes: Routes = [
   { path: '', component:DashboardComponent, canActivate: [AuthGuard]},
   { path: 'movie', component:MovieComponent, canActivate: [AuthGuard]},
+  { path: 'movie-detail/:id', component:MovieDetailComponent, canActivate: [AuthGuard]},
   { path: 'genres', component:GenresComponent, canActivate: [AuthGuard]},
   // { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
   { path: 'login', component:LoginComponent, canActivate: [NoAuthGuard] },
