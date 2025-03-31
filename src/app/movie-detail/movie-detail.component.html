@@ -1,0 +1,70 @@
+<div class="container mt-5">
+    <h3 class="my-4">Add Movie</h3>
+    <h1>{{ id }}</h1>
+    <form [formGroup]="movieForm">
+
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" formControlName="name" placeholder="Name">
+            <span class="help-block text-danger" *ngIf="movieForm.controls['name'].invalid && movieForm.controls['name'].touched">
+                Please enter name
+            </span>
+        </div>
+            
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea type="text" class="form-control" id="description" formControlName="description" placeholder="Description"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Genre</label>
+            <input type="text" class="form-control" id="genre" formControlName="genre" placeholder="Genre">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Director</label>
+            <input type="text" class="form-control" id="director" formControlName="director" placeholder="Director">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Rating</label>
+            <input type="range" class="form-range" (input)="updateRating($event)" min="0" max="5" id="rating" formControlName="rating" placeholder="Rating">
+            <span>{{ movieForm.get('rating').value }}</span>
+        </div>
+
+        <!-- TODO:UPLOAD -->
+        <!-- <div class="mb-3">
+            <label class="form-label">Image Url</label>
+            <input type="text" class="form-control" id="imageUrl" formControlName="imageUrl" placeholder="Image URL">
+        </div> -->
+   
+        <div class="mb-3">
+            <label class="form-label">Image</label>
+            <input class="form-control" type="file"
+                (change)="onChange($event)" >
+            
+                <!-- <input type="file"> по подразбиране поддържа drag and drop в повечето браузъри.
+                 <ngx-dropzone (change)="onFileSelect($event)" (drop)="onFileSelect($event)">
+                    <ngx-dropzone-label>Пуснете файла тук или кликнете, за да изберете</ngx-dropzone-label>
+                </ngx-dropzone> -->
+                 <div class="d-flex align-items-start justify-content-between">
+                    <img [src]="this.model.movieItem.imageUrl" width="300" *ngIf="this.model.movieItem.imageUrl" class="img-fluid my-4" />
+                 
+                    <button type="button" class="btn btn btn-danger mt-4 text-white" (click)="onDeleteImage()">Delete Image</button>
+                </div>
+        </div> 
+
+        <div class="mb-3">
+            <label class="form-label">Release Date</label>
+            <input type="date" class="form-control" id="releaseDate" formControlName="releaseDate" placeholder="Release Date">
+            <span class="help-block text-danger" *ngIf="movieForm.controls['releaseDate'].invalid && movieForm.controls['releaseDate'].touched">
+                Please enter release date
+            </span>
+        </div>
+
+        <div class="text-end my-5">
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="!movieForm.valid">Save</button>
+        </div>
+        
+    </form>
+</div>
